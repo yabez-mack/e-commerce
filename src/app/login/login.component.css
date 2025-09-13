@@ -1,0 +1,78 @@
+/* Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+}
+
+/* Card */
+.login-form {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Input styling */
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Focus state */
+.form-group input:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 4px rgba(74, 144, 226, 0.4);
+}
+
+/* ✅ Valid state */
+.form-group input.ng-valid.ng-touched {
+  border-color: #2ecc71; /* green */
+  box-shadow: 0 0 4px rgba(46, 204, 113, 0.4);
+}
+
+/* ❌ Invalid state */
+.form-group input.ng-invalid.ng-touched {
+  border-color: #e74c3c; /* red */
+  box-shadow: 0 0 4px rgba(231, 76, 60, 0.4);
+}
+
+
+button:disabled {
+  background: #a0c4f2;
+  cursor: not-allowed;
+}
+
+/* Error message */
+.error {
+  margin-top: 0.3rem;
+  color: #e74c3c;
+  font-size: 12px;
+}

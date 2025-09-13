@@ -1,0 +1,53 @@
+<nav class="fixed bg-white w-full shadow-md px-4 py-3 flex items-center justify-between">
+  <!-- Logo -->
+  <div class="text-xl font-bold text-yellow-800">
+    <a routerLink="/">🐝 ShopEasy</a>
+  </div>
+
+  <!-- Hamburger for mobile -->
+  <button 
+    class="md:hidden text-2xl focus:outline-none"
+    (click)="toggleMenu()"
+  >
+    ☰
+  </button>
+
+  <!-- Links -->
+  <ul
+    class="flex flex-col md:flex-row md:items-center absolute md:static left-0 top-14 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none transition-all"
+    [ngClass]="{ 'hidden': !menuOpen, 'flex': menuOpen }"
+  >
+    <li class="px-4 py-2 md:py-0">
+      <a routerLink="/" routerLinkActive="text-blue-600 font-semibold" [routerLinkActiveOptions]="{exact:true}">
+        Home
+      </a>
+    </li>
+
+    <li class="px-4 py-2 md:py-0">
+      <a routerLink="/cart" routerLinkActive="text-blue-600 font-semibold" class="flex items-center">
+        Cart 🛒
+        <span class="ml-1 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">{{ cartCount }}</span>
+      </a>
+    </li>
+
+    <ng-container *ngIf="loggedIn">
+      <li class="px-4 py-2 md:py-0">
+        <a routerLink="/orders" routerLinkActive="text-blue-600 font-semibold">Orders</a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="!loggedIn">
+      <li class="px-4 py-2 md:py-0">
+        <a routerLink="/login" routerLinkActive="text-blue-600 font-semibold">Login</a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="loggedIn">
+      <li class="px-4 py-2 md:py-0 cursor-pointer">
+        <a (click)="logout()">Logout</a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
