@@ -20,11 +20,12 @@
 .login-form h2 {
   margin-bottom: 1.5rem;
   text-align: center;
-  
+
   /* color: #333; */
-}
+} 
 input{
   font-size: 13px;
+  
 }
 /* Form groups */
 .form-group {
