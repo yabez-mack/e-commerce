@@ -3,4 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+.bg-yellow-400{
+   background: rgb(255 213 53)
+} */
 /* your existing global css can remain below (optional) */

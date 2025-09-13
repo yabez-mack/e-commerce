@@ -4,12 +4,12 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #4a90e2, #357abd);
+  /* background: linear-gradient(135deg, #4a90e2, #357abd); */
 }
 
 /* Card */
 .login-form {
-  background: #fff;
+  /* background: #fff; */
   padding: 2rem 2.5rem;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -20,9 +20,11 @@
 .login-form h2 {
   margin-bottom: 1.5rem;
   text-align: center;
-  color: #333;
+  /* color: #333; */
 }
-
+input{
+  font-size: 13px;
+}
 /* Form groups */
 .form-group {
   margin-bottom: 1.2rem;
@@ -32,7 +34,7 @@
   display: block;
   margin-bottom: 0.4rem;
   font-weight: 600;
-  color: #444;
+  /* color: #444; */
 }
 
 /* Input styling */
@@ -41,7 +43,7 @@
   padding: 0.75rem;
   border: 2px solid #ccc;
   border-radius: 8px;
-  font-size: 14px;
+  /* font-size: 14px; */
   transition: border 0.2s, box-shadow 0.2s;
 }
 
@@ -53,20 +55,32 @@
 }
 
 /* ✅ Valid state */
-.form-group input.ng-valid.ng-touched {
-  border-color: #2ecc71; /* green */
+input.ng-valid.ng-touched {
+  border: 1px solid #2ecc71 !important;
+  /* green */
+  box-shadow: 0 0 4px rgba(46, 204, 113, 0.4);
+}
+input.ng-valid.ng-untouched {
+  border: 1px solid #2ecc71 !important;
+  /* green */
   box-shadow: 0 0 4px rgba(46, 204, 113, 0.4);
 }
 
 /* ❌ Invalid state */
-.form-group input.ng-invalid.ng-touched {
-  border-color: #e74c3c; /* red */
+input.ng-invalid.ng-touched {
+  border: 1px solid #e74c3c !important;
+  /* red */
   box-shadow: 0 0 4px rgba(231, 76, 60, 0.4);
+}
+input.ng-untouched {
+  border: 1px solid #ffffff !important;
+  /* red */
+  /* box-shadow: 0 0 4px rgba(231, 76, 60, 0.4); */
 }
 
 
 button:disabled {
-  background: #a0c4f2;
+  /* background: #a0c4f2; */
   cursor: not-allowed;
 }
 
@@ -74,5 +88,5 @@ button:disabled {
 .error {
   margin-top: 0.3rem;
   color: #e74c3c;
-  font-size: 12px;
+  /* font-size: 12px; */
 }

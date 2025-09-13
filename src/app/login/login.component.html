@@ -1,42 +1,48 @@
-<div class="login-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-    <h2>Login</h2>
+<div
+  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500">
+  <div class="w-full max-w-md p-10 bg-white rounded-2xl shadow-2xl">
 
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        placeholder="Enter your email"
-      />
-      <div *ngIf="submitted && email?.errors" class="error">
-        <small *ngIf="email?.errors?.['required']">Email is required</small>
-        <small *ngIf="email?.errors?.['email']">Invalid email</small>
+    <h2 class="text-3xl font-extrabold text-bee-black mb-8 text-center font-mono tracking-wide">
+      🐝 LOGIN
+    </h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-black font-semibold mb-2">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="Enter your email"
+          class="w-full px-4 py-3 rounded-lg  focus:outline-none shadow-inner transition" />
+        <div *ngIf="submitted && email?.errors" class="text-red-600 text-sm mt-1">
+          <small *ngIf="email?.errors?.['required']">Email is required</small>
+          <small *ngIf="email?.errors?.['email']">Invalid email</small>
+        </div>
       </div>
-    </div>
 
-    <!-- Password -->
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        formControlName="password"
-        placeholder="Enter your password"
-      />
-      <div *ngIf="submitted && password?.errors" class="error">
-        <small *ngIf="password?.errors?.['required']">Password is required</small>
-        <small *ngIf="password?.errors?.['minlength']">
-          At least 6 characters
-        </small>
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-bee-black font-semibold mb-2">Password</label>
+        <input id="password" type="password" formControlName="password" placeholder="Enter your password"
+          class="w-full px-4 py-3 rounded-lg  focus:outline-none  shadow-inner transition" />
+        <div *ngIf="submitted && password?.errors" class="text-red-600 text-sm mt-1">
+          <small *ngIf="password?.errors?.['required']">Password is required</small>
+          <small *ngIf="password?.errors?.['minlength']">At least 6 characters</small>
+        </div>
       </div>
-    </div>
 
-    <!-- Submit -->
-    <button type="submit" 
-      class="w-full px-4 py-3 rounded-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-60"
-[disabled]="loginForm.invalid">Login</button>
-  </form>
+      <!-- Submit -->
+      <button type="submit"
+        class="w-full py-3 rounded-xl font-bold bg-black text-yellow-400 hover:bg-black-500 hover:text-yellow-300 transition-transform transform hover:scale-105 shadow-lg"
+        [disabled]="loginForm.invalid">
+        LOGIN
+      </button>
+
+      <!-- Optional Sign Up Link -->
+      <p class="text-center text-black mt-4 text-sm">
+        Don’t have an account?
+        <a routerLink="/register" class="underline hover:text-yellow-500 font-semibold">Sign Up</a>
+      </p>
+
+    </form>
+  </div>
 </div>
