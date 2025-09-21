@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+  keyframes
+} from '@angular/animations';
 interface Product {
   id: number;
   name: string;
@@ -12,7 +19,37 @@ interface Product {
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  styleUrls: ['./homepage.component.css'],
+   animations: [
+      trigger('fadeInOut', [
+        state('void', style({ opacity: 0 })), // when element enters or leaves
+        transition(':enter', [ // 👈 fade in
+          animate('300ms ease-in', style({ opacity: 1 }))
+        ]),
+        transition(':leave', [ // 👈 fade out
+          animate('500ms ease-out', style({ opacity: 0 }))
+        ])
+      ]),
+      trigger('slideFade', [
+        state('void', style({ opacity: 0, transform: 'translateY(-20px)' })), // before enter
+        transition(':enter', [
+          animate('700ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+        ]),
+        transition(':leave', [
+          animate('400ms ease-in', style({ opacity: 0, transform: 'translateY(-20px)' }))
+        ])
+      ]),
+      trigger('slideFadeUp', [
+        state('void', style({ opacity: 0, transform: 'translateY(20px)' })), // before enter
+        transition(':enter', [
+          animate('700ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+        ]),
+        transition(':leave', [
+          animate('400ms ease-in', style({ opacity: 0, transform: 'translateY(-20px)' }))
+        ])
+      ]),
+    
+    ]
 })
 export class HomepageComponent implements OnInit {
   products: Product[] = [];

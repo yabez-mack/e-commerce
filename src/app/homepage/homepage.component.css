@@ -6,39 +6,25 @@
 }
 
 /* Hero banner */
-.hero {
+.main-content {
   text-align: center;
   padding: 3rem 1rem;
-  background: linear-gradient(135deg, #4a90e2, #357abd);
+  /* background: linear-gradient(135deg, #4a90e2, #357abd); */
   color: white;
   border-radius: 0 0 20px 20px;
 }
 
-.hero h1 {
+.main-content h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.hero p {
+.main-content p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
 
-.hero button {
-  background: white;
-  color: #357abd;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-}
 
-.hero button:hover {
-  background: #f2f2f2;
-}
 
 /* Product section */
 .product-section {
@@ -107,4 +93,25 @@
 
 .card button:hover {
   background: #357abd;
+}
+
+.shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(-20deg);
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 150%;
+  }
 }

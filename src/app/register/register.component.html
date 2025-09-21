@@ -3,7 +3,7 @@
   <div class="w-full max-w-md p-10 bg-white rounded-2xl shadow-2xl">
 
     <h2 @fadeInOut class="text-3xl font-extrabold text-bee-black mb-8 text-center font-mono tracking-wide">
-      🐝 LOGIN
+      🐝 REGISTER
     </h2>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
@@ -13,10 +13,7 @@
         <label for="email" class="block text-black font-semibold mb-2">Email</label>
         <input id="email" type="email" formControlName="email" placeholder="Enter your email"
           class="w-full px-4 py-3 rounded-lg  focus:outline-none shadow-inner transition" />
-        <div *ngIf="submitted && email?.errors" class="text-red-600 text-sm mt-1">
-          <small *ngIf="email?.errors?.['required']">Email is required</small>
-          <small *ngIf="email?.errors?.['email']">Invalid email</small>
-        </div>
+
       </div>
 
       <!-- Password -->
@@ -24,24 +21,27 @@
         <label for="password" class="block text-bee-black font-semibold mb-2">Password</label>
         <input id="password" type="password" formControlName="password" placeholder="Enter your password"
           class="w-full px-4 py-3 rounded-lg  focus:outline-none  shadow-inner transition" />
-        <div *ngIf="submitted && password?.errors" class="text-red-600 text-sm mt-1">
-          <small *ngIf="password?.errors?.['required']">Password is required</small>
-          <small *ngIf="password?.errors?.['minlength']">At least 6 characters</small>
-        </div>
+
+      </div>
+      <div @fadeInOut>
+        <label for="verify_password" class="block text-bee-black font-semibold mb-2">Verify Password</label>
+        <input id="verify_password" type="password" formControlName="verify_password" placeholder="Enter your password"
+          class="w-full px-4 py-3 rounded-lg  focus:outline-none  shadow-inner transition" />
+
       </div>
 
       <!-- Submit -->
-      <button @fadeInOut type="submit"
-        class="w-full py-3 rounded-xl font-bold shadow-lg"
-        [ngClass]="loginForm.valid?'bg-black text-yellow-400 hover:bg-black-500 hover:text-yellow-300 transition-transform transform hover:scale-105':'bg-black text-yellow-400 hover:bg-black-500 hover:text-yellow-300 '"
-        [disabled]="loginForm.invalid">
-        LOGIN
+      <button @fadeInOut type="submit" class="w-full py-3 rounded-xl font-bold shadow-lg" 
+        [ngClass]="loginForm.valid && !loginForm.errors?.['mismatch']?'bg-black text-yellow-400 hover:bg-black-500 hover:text-yellow-300 transition-transform transform hover:scale-105':'bg-black text-yellow-400 hover:bg-black-500 hover:text-yellow-300 '"
+        [disabled]="!loginForm.valid || loginForm.errors?.['mismatch']"
+        >
+        REGISTER
       </button>
 
       <!-- Optional Sign Up Link -->
       <p @fadeInOut class="text-center text-black mt-4 text-sm">
-        Don’t have an account?
-        <a routerLink="/register" class="underline hover:text-yellow-500 font-semibold">Sign Up</a>
+        Already have an account?
+        <a routerLink="/login" class="underline hover:text-yellow-500 font-semibold">Login</a>
       </p>
 
     </form>

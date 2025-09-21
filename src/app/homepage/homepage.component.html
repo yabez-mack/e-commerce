@@ -1,18 +1,23 @@
-<div class="homepage">
-  <section class="hero">
+<div class="homepage  bg-yellow-400  bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500">
+  <section @slideFade @shineSlow
+    class="main-content bg-yellow-900 bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 shadow-xl bg-white/10 animate-shine-slow">
     <h1>Welcome to ShopEasy 🛍️</h1>
     <p>Find the best deals on fashion, footwear, and accessories!</p>
-    <button routerLink="/cart">Go to Cart</button>
+    <button
+      class="w-max py-3 px-2 rounded-xl font-bold shadow-lg bg-black text-yellow-400 hover:bg-black-500 hover:text-yellow-300 transition-transform transform hover:scale-105"
+      routerLink="/cart">Go to Cart</button>
   </section>
 
-  <section class="product-section">
+  <section  class="product-section">
     <h2>Featured Products</h2>
     <div class="product-grid">
       <div class="card" *ngFor="let product of products">
         <img [src]="product.image" [alt]="product.name" />
         <h3>{{ product.name }}</h3>
         <p class="price">₹{{ product.price | number: '1.0-0' }}</p>
-        <button (click)="addToCart(product)">Add to Cart</button>
+        <button (click)="addToCart(product)"
+          class="w-full py-3 rounded-xl font-bold shadow-lg bg-black text-yellow-400 hover:bg-black-500 hover:text-yellow-300 transition-transform transform hover:scale-105">Add
+          to Cart</button>
       </div>
     </div>
   </section>

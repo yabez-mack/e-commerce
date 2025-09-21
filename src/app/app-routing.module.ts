@@ -8,10 +8,12 @@ import { OrdersComponent } from './orders/orders.component';
 import { NopageComponent } from './nopage/nopage.component';
 import { AuthGuard } from './auth.guard';
 import { CheckoutGuard } from './checkout.guard';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent, canActivate: [CheckoutGuard] }, // ✅ protected
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },   // ✅ protected
